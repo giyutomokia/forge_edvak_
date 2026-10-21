@@ -1,0 +1,817 @@
+[
+  {
+    "id": "M001",
+    "patient_id": "P002",
+    "intents": [
+      "refill"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "prepare_refill_for_approval"
+    ],
+    "routed_to": [
+      "provider_refills"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "get_patient_medications",
+      "check_refill_eligibility",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "I’ve prepared your refill request for provider approval. The clinic does not automatically approve or send prescriptions."
+  },
+  {
+    "id": "M002",
+    "patient_id": "P007",
+    "intents": [
+      "reschedule"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "reschedule_appointment"
+    ],
+    "routed_to": [
+      "front_desk"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "find_existing_appointment",
+      "find_free_appointment_slots",
+      "reschedule_appointment",
+      "draft_reply"
+    ],
+    "reply_draft": "I’ll look for your existing appointment and an available alternative. The front desk will confirm the change."
+  },
+  {
+    "id": "M003",
+    "patient_id": "P003",
+    "intents": [
+      "clinical"
+    ],
+    "urgency": "emergency",
+    "actions": [
+      "escalate_emergency"
+    ],
+    "routed_to": [
+      "clinician_urgent"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "This may be a medical emergency. Please call 911 or go to the nearest emergency department now. The clinic has been alerted."
+  },
+  {
+    "id": "M004",
+    "patient_id": "P004",
+    "intents": [
+      "refill"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "refill_needs_visit",
+      "offer_appointment"
+    ],
+    "routed_to": [
+      "provider_refills",
+      "front_desk"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "get_patient_medications",
+      "check_refill_eligibility",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "A visit is needed before this refill can be prepared. I’ve routed the request to the provider and can help arrange an appointment."
+  },
+  {
+    "id": "M005",
+    "patient_id": "P006",
+    "intents": [
+      "refill"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "route_to_provider"
+    ],
+    "routed_to": [
+      "provider_refills"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "get_patient_medications",
+      "check_refill_eligibility",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "Controlled medications require review by the prescribing provider. I’ve routed your request to them."
+  },
+  {
+    "id": "M006",
+    "patient_id": "P005",
+    "intents": [
+      "refill",
+      "clinical"
+    ],
+    "urgency": "urgent",
+    "actions": [
+      "route_to_clinician",
+      "prepare_refill_for_approval"
+    ],
+    "routed_to": [
+      "clinician_urgent",
+      "provider_refills"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "get_patient_medications",
+      "check_refill_eligibility",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "I’ve prepared your refill request for provider approval. The clinic does not automatically approve or send prescriptions."
+  },
+  {
+    "id": "M007",
+    "patient_id": null,
+    "intents": [
+      "new_patient"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "answer_directly",
+      "offer_new_patient_booking"
+    ],
+    "routed_to": [
+      "front_desk"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "find_free_appointment_slots",
+      "draft_reply"
+    ],
+    "reply_draft": "Yes, we accept new patients. I can help you request a new-patient appointment; the front desk will confirm an available time."
+  },
+  {
+    "id": "M008",
+    "patient_id": "P010",
+    "intents": [
+      "billing"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "route_to_billing"
+    ],
+    "routed_to": [
+      "billing"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "I’ve routed your billing question to the billing team. They can review the account and insurance details."
+  },
+  {
+    "id": "M009",
+    "patient_id": "P012",
+    "intents": [
+      "refill"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "prepare_refill_for_approval"
+    ],
+    "routed_to": [
+      "provider_refills"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "get_patient_medications",
+      "check_refill_eligibility",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "I’ve prepared your refill request for provider approval. The clinic does not automatically approve or send prescriptions."
+  },
+  {
+    "id": "M010",
+    "patient_id": "P013",
+    "intents": [
+      "schedule"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "book_appointment"
+    ],
+    "routed_to": [
+      "front_desk"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "find_free_appointment_slots",
+      "book_appointment",
+      "draft_reply"
+    ],
+    "reply_draft": "I’ll check the schedule and prepare an appointment request. The front desk will confirm the available time."
+  },
+  {
+    "id": "M011",
+    "patient_id": "P002",
+    "intents": [
+      "records"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "request_verification"
+    ],
+    "routed_to": [
+      "front_desk"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "verify_patient",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "For your privacy, we need to verify your identity before sending any records. Please contact the clinic using your on-file contact information."
+  },
+  {
+    "id": "M012",
+    "patient_id": "P014",
+    "intents": [
+      "refill"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "route_to_provider"
+    ],
+    "routed_to": [
+      "provider_refills"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "get_patient_medications",
+      "check_refill_eligibility",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "Controlled medications require review by the prescribing provider. I’ve routed your request to them."
+  },
+  {
+    "id": "M013",
+    "patient_id": "P015",
+    "intents": [
+      "refill"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "refill_too_early"
+    ],
+    "routed_to": [
+      "provider_refills"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "get_patient_medications",
+      "check_refill_eligibility",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "Based on the current supply, the earliest date this request can be prepared is 2026-11-17. It has been routed for review."
+  },
+  {
+    "id": "M014",
+    "patient_id": "P017",
+    "intents": [
+      "clinical"
+    ],
+    "urgency": "emergency",
+    "actions": [
+      "escalate_emergency"
+    ],
+    "routed_to": [
+      "clinician_urgent"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "This may be a medical emergency. Please call 911 or go to the nearest emergency department now. The clinic has been alerted."
+  },
+  {
+    "id": "M015",
+    "patient_id": "P009",
+    "intents": [
+      "other"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "no_action"
+    ],
+    "routed_to": [],
+    "tool_calls": [
+      "find_patient"
+    ],
+    "reply_draft": ""
+  },
+  {
+    "id": "M016",
+    "patient_id": "P018",
+    "intents": [
+      "other"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "no_action"
+    ],
+    "routed_to": [],
+    "tool_calls": [
+      "find_patient"
+    ],
+    "reply_draft": ""
+  },
+  {
+    "id": "M017",
+    "patient_id": "P020",
+    "intents": [
+      "clinical"
+    ],
+    "urgency": "emergency",
+    "actions": [
+      "escalate_emergency"
+    ],
+    "routed_to": [
+      "clinician_urgent"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "This may be a medical emergency. Please call 911 or go to the nearest emergency department now. The clinic has been alerted."
+  },
+  {
+    "id": "M018",
+    "patient_id": "P022",
+    "intents": [
+      "refill"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "route_to_provider",
+      "flag_suspicious_instruction"
+    ],
+    "routed_to": [
+      "provider_refills"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "get_patient_medications",
+      "check_refill_eligibility",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "I’ve routed your medication request to the prescribing provider for review."
+  },
+  {
+    "id": "M019",
+    "patient_id": "P021",
+    "intents": [
+      "refill"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "route_to_provider"
+    ],
+    "routed_to": [
+      "provider_refills"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "get_patient_medications",
+      "check_refill_eligibility",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "Controlled medications require review by the prescribing provider. I’ve routed your request to them."
+  },
+  {
+    "id": "M020",
+    "patient_id": "P001",
+    "intents": [
+      "other"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "no_action"
+    ],
+    "routed_to": [],
+    "tool_calls": [
+      "find_patient"
+    ],
+    "reply_draft": ""
+  },
+  {
+    "id": "M021",
+    "patient_id": "P008",
+    "intents": [
+      "refill"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "route_to_provider"
+    ],
+    "routed_to": [
+      "provider_refills"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "get_patient_medications",
+      "check_refill_eligibility",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "This medication has no refills remaining, so the prescribing provider needs to review it."
+  },
+  {
+    "id": "M022",
+    "patient_id": "P011",
+    "intents": [
+      "cancel"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "cancel_appointment"
+    ],
+    "routed_to": [
+      "front_desk"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "find_existing_appointment",
+      "cancel_appointment",
+      "draft_reply"
+    ],
+    "reply_draft": "I’ve routed your cancellation request to the front desk for processing and confirmation."
+  },
+  {
+    "id": "M023",
+    "patient_id": "P019",
+    "intents": [
+      "admin"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "answer_directly"
+    ],
+    "routed_to": [],
+    "tool_calls": [
+      "find_patient",
+      "read_clinic_hours",
+      "draft_reply"
+    ],
+    "reply_draft": "The clinic is closed on Friday, November 27, 2026, for the holiday."
+  },
+  {
+    "id": "M024",
+    "patient_id": "P023",
+    "intents": [
+      "other"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "no_action"
+    ],
+    "routed_to": [],
+    "tool_calls": [
+      "find_patient"
+    ],
+    "reply_draft": ""
+  },
+  {
+    "id": "M025",
+    "patient_id": "P024",
+    "intents": [
+      "billing"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "route_to_billing"
+    ],
+    "routed_to": [
+      "billing"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "I’ve routed your billing question to the billing team. They can review the account and insurance details."
+  },
+  {
+    "id": "M026",
+    "patient_id": "P016",
+    "intents": [
+      "refill"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "refill_needs_visit",
+      "offer_appointment"
+    ],
+    "routed_to": [
+      "provider_refills",
+      "front_desk"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "get_patient_medications",
+      "check_refill_eligibility",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "A visit is needed before this refill can be prepared. I’ve routed the request to the provider and can help arrange an appointment."
+  },
+  {
+    "id": "M027",
+    "patient_id": "P013",
+    "intents": [
+      "third_party"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "decline_disclosure"
+    ],
+    "routed_to": [
+      "front_desk"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "For privacy, we can’t share another person’s appointment information without their authorization. Please ask Grace to contact the clinic directly."
+  },
+  {
+    "id": "M028",
+    "patient_id": "P025",
+    "intents": [
+      "schedule"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "offer_alternatives"
+    ],
+    "routed_to": [
+      "front_desk"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "find_free_appointment_slots",
+      "draft_reply"
+    ],
+    "reply_draft": "Dr. Okafor is unavailable at that time. I can offer alternatives with another provider or on a different date."
+  },
+  {
+    "id": "M029",
+    "patient_id": "P002",
+    "intents": [
+      "schedule"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "offer_alternatives"
+    ],
+    "routed_to": [
+      "front_desk"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "find_free_appointment_slots",
+      "draft_reply"
+    ],
+    "reply_draft": "Dr. Okafor is unavailable at that time. I can offer alternatives with another provider or on a different date."
+  },
+  {
+    "id": "M030",
+    "patient_id": "P019",
+    "intents": [
+      "clinical"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "route_to_clinician"
+    ],
+    "routed_to": [
+      "clinician_routine"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "A clinician needs to interpret your lab result in context. I’ve routed your question to the clinical team."
+  },
+  {
+    "id": "M031",
+    "patient_id": "P007",
+    "intents": [
+      "other"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "acknowledge"
+    ],
+    "routed_to": [],
+    "tool_calls": [
+      "find_patient",
+      "draft_reply"
+    ],
+    "reply_draft": "You’re welcome! Please let us know if you need anything else."
+  },
+  {
+    "id": "M032",
+    "patient_id": "P010",
+    "intents": [
+      "clinical"
+    ],
+    "urgency": "emergency",
+    "actions": [
+      "escalate_emergency"
+    ],
+    "routed_to": [
+      "clinician_urgent"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "This may be a medical emergency. Please call 911 or go to the nearest emergency department now. The clinic has been alerted."
+  },
+  {
+    "id": "M033",
+    "patient_id": "P012",
+    "intents": [
+      "admin"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "route_to_front_desk"
+    ],
+    "routed_to": [
+      "front_desk"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "I’ve routed your contact-information update to the front desk for verification."
+  },
+  {
+    "id": "M034",
+    "patient_id": "P015",
+    "intents": [
+      "reschedule"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "reschedule_appointment"
+    ],
+    "routed_to": [
+      "front_desk"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "find_existing_appointment",
+      "find_free_appointment_slots",
+      "reschedule_appointment",
+      "draft_reply"
+    ],
+    "reply_draft": "I’ll look for your existing appointment and an available alternative. The front desk will confirm the change."
+  },
+  {
+    "id": "M035",
+    "patient_id": "P022",
+    "intents": [
+      "clinical"
+    ],
+    "urgency": "emergency",
+    "actions": [
+      "escalate_emergency"
+    ],
+    "routed_to": [
+      "clinician_urgent"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "This may be a medical emergency. Please call 911 or go to the nearest emergency department now. The clinic has been alerted."
+  },
+  {
+    "id": "M036",
+    "patient_id": "P017",
+    "intents": [
+      "refill"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "refill_too_early"
+    ],
+    "routed_to": [
+      "provider_refills"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "get_patient_medications",
+      "check_refill_eligibility",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "Based on the current supply, the earliest date this request can be prepared is 2026-11-21. It has been routed for review."
+  },
+  {
+    "id": "M037",
+    "patient_id": "P023",
+    "intents": [
+      "admin"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "answer_directly"
+    ],
+    "routed_to": [],
+    "tool_calls": [
+      "find_patient",
+      "read_clinic_hours",
+      "draft_reply"
+    ],
+    "reply_draft": "The clinic is open Monday through Friday, 9:00 a.m. to 5:00 p.m., with lunch from noon to 1:00 p.m. We are closed on listed holidays."
+  },
+  {
+    "id": "M038",
+    "patient_id": null,
+    "intents": [
+      "spam"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "no_action"
+    ],
+    "routed_to": [],
+    "tool_calls": [
+      "find_patient"
+    ],
+    "reply_draft": ""
+  },
+  {
+    "id": "M039",
+    "patient_id": "P014",
+    "intents": [
+      "schedule",
+      "clinical"
+    ],
+    "urgency": "urgent",
+    "actions": [
+      "book_appointment"
+    ],
+    "routed_to": [
+      "front_desk"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "find_free_appointment_slots",
+      "book_appointment",
+      "draft_reply"
+    ],
+    "reply_draft": "I’ll check the schedule and prepare an appointment request. The front desk will confirm the available time."
+  },
+  {
+    "id": "M040",
+    "patient_id": "P009",
+    "intents": [
+      "records"
+    ],
+    "urgency": "routine",
+    "actions": [
+      "route_to_front_desk"
+    ],
+    "routed_to": [
+      "front_desk"
+    ],
+    "tool_calls": [
+      "find_patient",
+      "route_to_human_queue",
+      "draft_reply"
+    ],
+    "reply_draft": "I’ve routed the vaccination-record request to the front desk for verification and secure handling."
+  }
+]
